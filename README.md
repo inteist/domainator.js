@@ -41,14 +41,15 @@ pbpaste | bun domainator.js
 
 ### Flags & Options
 
-| Flag              | Name             | Description                          | Default                      |
-| :---------------- | :--------------- | :----------------------------------- | :--------------------------- |
-| `-t, --tlds`      | `<.tld ...>`     | TLD list                             | `.com, .ai, .io, .net, .org` |
-| `-r, --registrar` | `<provider,...>` | Registrar providers, comma-separated | `none`                       |
-| `-v, --verbose`   |                  | Verbose diagnostics per lookup       |                              |
-| `-d, --delay`     | `<seconds>`      | Delay between checks                 | `0.5`                        |
-| `--no-whois`      |                  | Disable whois fallback               |                              |
-| `-h, --help`      |                  | Show CLI help                        |                              |
+| Flag                | Name             | Description                          | Default                      |
+| :------------------ | :--------------- | :----------------------------------- | :--------------------------- |
+| `-i, --interactive` |                  | Run in interactive mode directly     |                              |
+| `-t, --tlds`        | `<.tld ...>`     | TLD list                             | `.com, .ai, .io, .net, .org` |
+| `-r, --registrar`   | `<provider,...>` | Registrar providers, comma-separated | `none`                       |
+| `-v, --verbose`     |                  | Verbose diagnostics per lookup       |                              |
+| `-d, --delay`       | `<seconds>`      | Delay between checks                 | `0.5`                        |
+| `--no-whois`        |                  | Disable whois fallback               |                              |
+| `-h, --help`        |                  | Show CLI help                        |                              |
 
 ### Supported Registrars & API Keys
 

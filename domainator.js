@@ -237,6 +237,7 @@ function showUsage() {
         { f: ["--jsonwhois-key", "<key>"], d: "JsonWhois key (or $JSONWHOIS_API_KEY)" },
         { f: ["--dynadot-key", "<key>"], d: "Dynadot API key (or $DYNADOT_API_KEY)" },
         { f: ["--no-whois", ""], d: "Disable whois fallback" },
+        { f: ["-i, --interactive", ""], d: "Run in interactive mode directly" },
         { f: ["-d, --delay", "<seconds>"], d: "Delay between checks (default: 0.5)" },
         { f: ["-h, --help", ""], d: "Show this help" }
     ];
@@ -329,6 +330,7 @@ function parseArgs(argv) {
         useWhois: true,
         delayMs: 500,
         verbose: false,
+        interactive: false,
         help: false,
     };
 
@@ -338,6 +340,7 @@ function parseArgs(argv) {
         "-h": "--help",
         "-t": "--tlds",
         "-r": "--registrar",
+        "-i": "--interactive",
         "-cft": "--cf-token",
         "-cfa": "--cf-account-id",
         "-d": "--delay",
@@ -355,6 +358,11 @@ function parseArgs(argv) {
 
         if (arg === "--verbose") {
             options.verbose = true;
+            continue;
+        }
+
+        if (arg === "--interactive") {
+            options.interactive = true;
             continue;
         }
 
@@ -1276,6 +1284,11 @@ async function main() {
             console.error(chalk.dim("Available: " + allRegistrarNames().join(", ")));
             process.exit(1);
         }
+    }
+
+    if (options.interactive) {
+        await interactiveMode();
+        return;
     }
 
     const pipedTokens = await readPipedInput();
