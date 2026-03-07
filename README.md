@@ -20,6 +20,7 @@ bun install
 
 ## Usage
 
+
 Run in interactive mode:
 ```bash
 bun domainator.js 
@@ -36,6 +37,15 @@ Or using pbpaste:
 
 ```bash
 pbpaste | bun domainator.js
+```
+
+Alternatively, you can run it without `bun`:
+```bash
+# Make it executable
+chmod +x domainator.js
+
+# Run it
+./domainator.js
 ```
 
 
