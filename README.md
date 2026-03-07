@@ -54,26 +54,30 @@ pbpaste | bun domainator.js
 
 If you want to use the `--registrar` option, you can specify individual providers. You can pass credentials directly via flags, or export them securely as Environment Variables.
 
-* **Cloudflare (cf):** `-cft, --cf-token` (`$CLOUDFLARE_API_TOKEN`) / `-cfa, --cf-account-id` (`$CLOUDFLARE_ACCOUNT_ID`)
-* **GoDaddy (gd):** `--gd-key` (`$GODADDY_API_KEY`) / `--gd-secret` (`$GODADDY_API_SECRET`)
-* **Namecheap (nc):** `--nc-user` (`$NAMECHEAP_API_USER`) / `--nc-key` (`$NAMECHEAP_API_KEY`)
-* **WhoisXML (wxml):** `--whoisxml-key` (`$WHOISXML_API_KEY`)
-* **WhoisFreaks (wf):** `--whoisfreaks-key` (`$WHOISFREAKS_API_KEY`)
-* **WhoAPI:** `--whoapi-key` (`$WHOAPI_API_KEY`)
-* **APILayer (al):** `--apilayer-key` (`$APILAYER_API_KEY`)
-* **API Ninjas (an):** `--apininjas-key` (`$APININJAS_API_KEY`)
-* **JsonWhois (jw):** `--jsonwhois-key` (`$JSONWHOIS_API_KEY`)
-* **Dynadot (dd):** `--dynadot-key` (`$DYNADOT_API_KEY`)
+| Registrar       | Alias  | CLI Flags                                     | Environment Variables                             |
+| :-------------- | :----- | :-------------------------------------------- | :------------------------------------------------ |
+| **Cloudflare**  | `cf`   | `-cft, --cf-token`<br>`-cfa, --cf-account-id` | `CLOUDFLARE_API_TOKEN`<br>`CLOUDFLARE_ACCOUNT_ID` |
+| **GoDaddy**     | `gd`   | `--gd-key`<br>`--gd-secret`                   | `GODADDY_API_KEY`<br>`GODADDY_API_SECRET`         |
+| **Namecheap**   | `nc`   | `--nc-user`<br>`--nc-key`                     | `NAMECHEAP_API_USER`<br>`NAMECHEAP_API_KEY`       |
+| **WhoisXML**    | `wxml` | `--whoisxml-key`                              | `WHOISXML_API_KEY`                                |
+| **WhoisFreaks** | `wf`   | `--whoisfreaks-key`                           | `WHOISFREAKS_API_KEY`                             |
+| **WhoAPI**      | -      | `--whoapi-key`                                | `WHOAPI_API_KEY`                                  |
+| **APILayer**    | `al`   | `--apilayer-key`                              | `APILAYER_API_KEY`                                |
+| **API Ninjas**  | `an`   | `--apininjas-key`                             | `APININJAS_API_KEY`                               |
+| **JsonWhois**   | `jw`   | `--jsonwhois-key`                             | `JSONWHOIS_API_KEY`                               |
+| **Dynadot**     | `dd`   | `--dynadot-key`                               | `DYNADOT_API_KEY`                                 |
 
 ## Examples
 
 **Basic domain checking with custom TLDs:**
 ```bash
+# Check example.dev and example.run
 bun domainator.js example --tlds .dev .run
 ```
 
 **Checking multiple specific domains:**
 ```bash
+# Check example.ai and example.dev
 bun domainator.js example.ai example.dev
 ```
 
