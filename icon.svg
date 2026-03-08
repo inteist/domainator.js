@@ -1,0 +1,229 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="100%" height="100%">
+  <defs>
+    <!-- Dark Tech Gradient -->
+    <radialGradient id="bgGrad" cx="50%" cy="50%" r="75%">
+      <stop offset="0%" stop-color="#14113D"/>
+      <stop offset="100%" stop-color="#080718"/>
+    </radialGradient>
+
+    <!-- Face Gradient -->
+    <linearGradient id="faceGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#5FEAF8"/>
+      <stop offset="50%" stop-color="#3AC1F7"/>
+      <stop offset="100%" stop-color="#1B60E6"/>
+    </linearGradient>
+
+    <!-- Ear / Mouth Glow Gradient -->
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#DF35F0"/>
+      <stop offset="100%" stop-color="#7B2CBF"/>
+    </linearGradient>
+
+    <!-- Eyes Glowing Core -->
+    <radialGradient id="eyeGrad" cx="30%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#FFE040"/>
+      <stop offset="70%" stop-color="#F2930D"/>
+      <stop offset="100%" stop-color="#D97200"/>
+    </radialGradient>
+
+    <!-- Eye Pupil -->
+    <linearGradient id="pupilGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#141840"/>
+      <stop offset="100%" stop-color="#050512"/>
+    </linearGradient>
+
+    <!-- Soft Drop Shadow for depth -->
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000" flood-opacity="0.6"/>
+    </filter>
+
+    <!-- Neon Glow effect -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Styles -->
+    <style>
+      .font-mono { font-family: ui-monospace, SFMono-Regular, "Cascadia Code", "Fira Code", monospace; font-weight: bold; }
+      .bg-win { fill: rgba(12, 14, 38, 0.85); stroke: rgba(95, 234, 248, 0.3); stroke-width: 1.5; }
+    </style>
+
+    <!-- Reusable shapes for perfectly vector coding braces -->
+    <path id="braceL" d="M 28,0 Q 12,0 12,18 L 12,42 Q 12,54 0,60 Q 12,66 12,78 L 12,102 Q 12,120 28,120" stroke-width="12" stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+    <path id="braceR" d="M 0,0 Q 16,0 16,18 L 16,42 Q 16,54 28,60 Q 16,66 16,78 L 16,102 Q 16,120 0,120" stroke-width="12" stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="800" fill="url(#bgGrad)"/>
+
+  <!-- Flowing Tech Cables / Network Lines -->
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9">
+    <path d="M 330,470 Q 240,550 170,620" stroke="#DF35F0" stroke-width="5"/>
+    <path d="M 350,480 Q 280,550 200,620" stroke="#5FEAF8" stroke-width="7"/>
+    <path d="M 380,490 Q 380,560 370,630" stroke="#FACC3F" stroke-width="6"/>
+    <path d="M 420,490 Q 420,560 430,630" stroke="#5FEAF8" stroke-width="8"/>
+    <path d="M 450,480 Q 520,550 600,620" stroke="#DF35F0" stroke-width="6"/>
+    <path d="M 470,470 Q 560,550 630,620" stroke="#5FEAF8" stroke-width="5"/>
+  </g>
+
+  <!-- Floating Background Particles & Symbols -->
+  <g filter="url(#glow)">
+    <!-- Left -->
+    <g transform="translate(60, 260) scale(1)">
+      <use href="#braceL" x="0" y="0" stroke="#DF35F0" opacity="0.4"/>
+    </g>
+    <circle cx="160" cy="120" r="10" fill="#5FEAF8" opacity="0.5"/>
+    <text x="100" y="440" class="font-mono" font-size="60" fill="#FACC3F" opacity="0.3">;</text>
+    
+    <!-- Right -->
+    <g transform="translate(680, 240) scale(1.2)">
+      <use href="#braceR" x="0" y="0" stroke="#5FEAF8" opacity="0.3"/>
+    </g>
+    <circle cx="680" cy="460" r="8" fill="#FACC3F" opacity="0.4"/>
+    <text x="700" y="160" class="font-mono" font-size="70" fill="#DF35F0" opacity="0.3">*</text>
+  </g>
+
+  <!-- The Main Robot Head Container -->
+  <g filter="url(#shadow)">
+    <!-- Ears (Stick out slightly behind the head) -->
+    <rect x="160" y="270" width="80" height="140" rx="35" fill="url(#accentGrad)" />
+    <rect x="560" y="270" width="80" height="140" rx="35" fill="url(#accentGrad)" />
+
+    <!-- Ear Antennas -->
+    <path d="M 180,270 L 180,180" stroke="#5FEAF8" stroke-width="12" stroke-linecap="round"/>
+    <circle cx="180" cy="180" r="14" fill="#FACC3F" filter="url(#glow)"/>
+
+    <path d="M 620,270 L 620,180" stroke="#5FEAF8" stroke-width="12" stroke-linecap="round"/>
+    <circle cx="620" cy="180" r="14" fill="#DF35F0" filter="url(#glow)"/>
+
+    <!-- The Square Face Base -->
+    <rect x="200" y="200" width="400" height="300" rx="70" fill="url(#faceGrad)" />
+  </g>
+
+  <!-- Crown / Forehead Code Elements -->
+  <g stroke-linecap="round" stroke-linejoin="round">
+    <rect x="360" y="180" width="80" height="20" rx="8" fill="#14113D"/>
+
+    <!-- Middle Connector -->
+    <path d="M 400,180 L 400,100" stroke="#5FEAF8" stroke-width="12"/>
+    <circle cx="400" cy="90" r="14" fill="#5FEAF8" filter="url(#glow)"/>
+
+    <!-- Left Braces & Connector -->
+    <path d="M 350,190 L 350,140 M 350,126 L 350,126" stroke="#DF35F0" stroke-width="10"/>
+    <g transform="translate(280, 110) scale(0.6)">
+      <use href="#braceL" x="0" y="0" stroke="#FACC3F"/>
+    </g>
+
+    <!-- Right Braces & Connector -->
+    <path d="M 450,190 L 450,140" stroke="#FACC3F" stroke-width="10"/>
+    <circle cx="450" cy="130" r="8" fill="#FACC3F"/>
+    <g transform="translate(480, 110) scale(0.6)">
+      <use href="#braceR" x="0" y="0" stroke="#DF35F0"/>
+    </g>
+  </g>
+
+  <!-- Forehead Accent (Simulate light reflection for depth) -->
+  <path d="M 270,225 Q 400,205 530,225 Q 400,230 270,225 Z" fill="#FFFFFF" opacity="0.25"/> 
+
+  <!-- The Friendly Glowing Eyes -->
+  <circle cx="290" cy="300" r="65" fill="url(#eyeGrad)"/>
+  <circle cx="510" cy="300" r="65" fill="url(#eyeGrad)"/>
+
+  <!-- Deep Blue Pupils -->
+  <circle cx="290" cy="300" r="38" fill="url(#pupilGrad)"/>
+  <circle cx="510" cy="300" r="38" fill="url(#pupilGrad)"/>
+
+  <!-- Cute Highlights for the eyes -->
+  <!-- Main Highlights (giving consistent top-left lighting direction) -->
+  <circle cx="275" cy="285" r="14" fill="#FFFFFF" opacity="0.95"/>
+  <circle cx="495" cy="285" r="14" fill="#FFFFFF" opacity="0.95"/>
+  <!-- Secondary Glints -->
+  <circle cx="310" cy="315" r="5" fill="#FFFFFF" opacity="0.8"/>
+  <circle cx="530" cy="315" r="5" fill="#FFFFFF" opacity="0.8"/>
+
+  <!-- Large Smile showing teeth as code/bytes -->
+  <path d="M 310,410 A 90,60 0 0,0 490,410 Q 400,420 310,410 Z" fill="url(#pupilGrad)" />
+  
+  <text x="365" y="445" class="font-mono" font-size="24" fill="#FACC3F" font-weight="900">{</text>
+  <text x="395" y="445" class="font-mono" font-size="24" fill="#DF35F0" font-weight="900">*</text>
+  <text x="425" y="445" class="font-mono" font-size="24" fill="#5FEAF8" font-weight="900">}</text>
+
+  <!-- Windows (Abstracted UI cards representing the CLI processing at bottom) -->
+  
+  <!-- Window 1: File Tree (Left) -->
+  <g transform="translate(60, 620)">
+    <rect x="0" y="0" width="200" height="130" rx="14" class="bg-win" filter="url(#shadow)"/>
+    
+    <!-- Titlebar Buttons -->
+    <circle cx="20" cy="18" r="5" fill="#FF5F56"/>
+    <circle cx="36" cy="18" r="5" fill="#FFBD2E"/>
+    <circle cx="52" cy="18" r="5" fill="#27C93F"/>
+    <line x1="0" y1="36" x2="200" y2="36" stroke="rgba(95, 234, 248, 0.2)" stroke-width="1.5"/>
+    
+    <!-- Visual coding lines showing generic folder structure scaling nicely -->
+    <rect x="18" y="52" width="80" height="8" rx="4" fill="#5FEAF8" opacity="0.9"/>
+    
+    <path d="M 26,64 L 26,76 L 36,76" fill="none" stroke="#5E6FA8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="42" y="72" width="60" height="8" rx="4" fill="#DF35F0" opacity="0.85"/>
+    
+    <path d="M 26,84 L 26,98 L 36,98" fill="none" stroke="#5E6FA8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="42" y="94" width="120" height="8" rx="4" fill="#FACC3F" opacity="0.85"/>
+
+    <path d="M 48,106 L 48,114 L 56,114" fill="none" stroke="#5E6FA8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="62" y="110" width="80" height="8" rx="4" fill="#FFFFFF" opacity="0.6"/>
+  </g>
+
+  <!-- Window 2: JSON Response block (Center) -->
+  <g transform="translate(300, 640)">
+    <rect x="0" y="0" width="200" height="130" rx="14" class="bg-win" filter="url(#shadow)"/>
+    <circle cx="20" cy="18" r="5" fill="#FF5F56"/>
+    <circle cx="36" cy="18" r="5" fill="#FFBD2E"/>
+    <circle cx="52" cy="18" r="5" fill="#27C93F"/>
+    <line x1="0" y1="36" x2="200" y2="36" stroke="rgba(95, 234, 248, 0.2)" stroke-width="1.5"/>
+    
+    <text x="18" y="58" class="font-mono" fill="#FFFFFF" font-size="20" opacity="0.8">{</text>
+    
+    <rect x="36" y="66" width="40" height="8" rx="4" fill="#5FEAF8"/>
+    <circle cx="86" cy="70" r="2.5" fill="#FFF" opacity="0.6"/> <!-- colon -->
+    <rect x="96" y="66" width="60" height="8" rx="4" fill="#FACC3F"/>
+    <circle cx="164" cy="74" r="2.5" fill="#FFF" opacity="0.5"/> <!-- comma -->
+
+    <rect x="36" y="88" width="50" height="8" rx="4" fill="#5FEAF8"/>
+    <circle cx="96" cy="92" r="2.5" fill="#FFF" opacity="0.6"/> <!-- colon -->
+    <rect x="106" y="88" width="30" height="8" rx="4" fill="#DF35F0"/>
+
+    <text x="18" y="122" class="font-mono" fill="#FFFFFF" font-size="20" opacity="0.8">}</text>
+  </g>
+
+  <!-- Window 3: Status / List block (Right) -->
+  <g transform="translate(540, 620)">
+    <rect x="0" y="0" width="200" height="130" rx="14" class="bg-win" filter="url(#shadow)"/>
+    <circle cx="20" cy="18" r="5" fill="#FF5F56"/>
+    <circle cx="36" cy="18" r="5" fill="#FFBD2E"/>
+    <circle cx="52" cy="18" r="5" fill="#27C93F"/>
+    <line x1="0" y1="36" x2="200" y2="36" stroke="rgba(95, 234, 248, 0.2)" stroke-width="1.5"/>
+    
+    <!-- Emulating a Table of domains -->
+    <rect x="16" y="48" width="80" height="6" rx="3" fill="#5E6FA8" opacity="0.8"/>
+    <rect x="120" y="48" width="30" height="6" rx="3" fill="#5E6FA8" opacity="0.8"/>
+    <rect x="160" y="48" width="24" height="6" rx="3" fill="#5E6FA8" opacity="0.8"/>
+    <line x1="16" y1="62" x2="184" y2="62" stroke="#5E6FA8" stroke-dasharray="3 4" stroke-width="1.5" opacity="0.5"/>
+
+    <rect x="16" y="74" width="90" height="8" rx="4" fill="#FFFFFF" opacity="0.8"/>
+    <rect x="120" y="74" width="24" height="8" rx="4" fill="#27C93F"/> <!-- Status OK -->
+    <rect x="160" y="74" width="24" height="8" rx="4" fill="#FFFFFF" opacity="0.4"/>
+    
+    <rect x="16" y="92" width="70" height="8" rx="4" fill="#FFFFFF" opacity="0.8"/>
+    <rect x="120" y="92" width="24" height="8" rx="4" fill="#27C93F"/> <!-- Status OK -->
+    <rect x="160" y="92" width="24" height="8" rx="4" fill="#FFFFFF" opacity="0.4"/>
+
+    <rect x="16" y="110" width="100" height="8" rx="4" fill="#FFFFFF" opacity="0.8"/>
+    <rect x="120" y="110" width="32" height="8" rx="4" fill="#FF5F56"/> <!-- Status FAIL / NOT AVAIL -->
+    <rect x="160" y="110" width="24" height="8" rx="4" fill="#FFFFFF" opacity="0.4"/>
+  </g>
+
+</svg>
