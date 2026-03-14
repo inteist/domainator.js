@@ -1,5 +1,7 @@
 # Domainator
 
+![banner](banner.png)
+
 Domainator is a fast, versatile, and unified Command Line Interface (CLI) Domain Availability Checker. Built to run perfectly under [Bun](https://bun.sh/) (or Node.js), it accepts standard inputs, domain expansion, and piped lists, delivering rich availability checks via RDAP, DNS DoH, WHOIS fallbacks, and multi-registrar API checks.
 
 ## Features
