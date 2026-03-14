@@ -27,7 +27,7 @@ import Table from "cli-table3";
 const APP_LABEL = "Domainator";
 const USER_AGENT = "domainator/1.0";
 const MAX_REPORT_ISSUES = 12;
-const DEFAULT_TLDS = [".com", ".ai", ".io", ".net", ".org"];
+const DEFAULT_TLDS = [".com", ".ai", ".io"];
 const IANA_RDAP_BOOTSTRAP = "https://data.iana.org/rdap/dns.json";
 const CLOUDFLARE_DOH = "https://cloudflare-dns.com/dns-query";
 
