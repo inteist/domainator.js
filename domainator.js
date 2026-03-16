@@ -27,7 +27,15 @@ import Table from "cli-table3";
 const APP_LABEL = "Domainator";
 const USER_AGENT = "domainator/1.0";
 const MAX_REPORT_ISSUES = 12;
-const DEFAULT_TLDS = [".com", ".ai", ".io", ".net", ".org"];
+
+const TLD_GROUPS = {
+    minimal: [".com", ".net", ".org"],
+    common: [".com", ".net", ".org", ".io", ".ai", ".co", ".dev", ".me", ".sh"],
+    dev: [".com", ".dev", ".io", ".ai", ".app", ".sh", ".tech", ".tools", ".software", ".cloud", ".studio", ".systems"],
+    general: [".com", ".net", ".org", ".biz", ".info", ".xyz", ".online", ".site", ".world", ".space", ".today", ".live", ".news", ".media", ".digital", ".blog", ".cc", ".tv", ".fm"],
+};
+
+const DEFAULT_TLDS = [".com", ".ai", ".io"];
 const IANA_RDAP_BOOTSTRAP = "https://data.iana.org/rdap/dns.json";
 const CLOUDFLARE_DOH = "https://cloudflare-dns.com/dns-query";
 
@@ -221,6 +229,7 @@ function showUsage() {
 
     const flagsInfo = [
         { f: ["-t, --tlds", "<.tld ...>"], d: `TLD list (default: ${DEFAULT_TLDS.join(", ")})` },
+        { f: ["-g, --group", "<name>"], d: `Thematic TLD group: ${Object.keys(TLD_GROUPS).join(", ")}` },
         { f: ["-r, --registrar", "<provider,...>"], d: "Registrar providers, comma-separated (default: none)" },
         { f: ["-v, --verbose", ""], d: "Verbose diagnostics per lookup" },
         { f: ["-cft, --cf-token", "<token>"], d: "Cloudflare API token (or $CLOUDFLARE_API_TOKEN)" },
@@ -267,10 +276,10 @@ ${flagsFormatted}
 ${chalk.bold("Registrars:")} ${chalk.dim(registrarList)}
 
 ${chalk.bold("Examples:")}
-  ${chalk.green("bun domainator.js")} shai ${chalk.yellow("--tlds")} .dev .run
-  ${chalk.green("bun domainator.js")} shai.ai shai.dev
-  ${chalk.green("bun domainator.js")} shai.dev ${chalk.yellow("-r")} godaddy ${chalk.yellow("--gd-key")} KEY ${chalk.yellow("--gd-secret")} SECRET
-  ${chalk.green("bun domainator.js")} shai ${chalk.yellow("-r")} whoisxml,godaddy ${chalk.yellow("-v")}
+  ${chalk.green("bun domainator.js")} example ${chalk.yellow("--tlds")} .dev .run
+  ${chalk.green("bun domainator.js")} example.ai example.dev
+  ${chalk.green("bun domainator.js")} example.dev ${chalk.yellow("-r")} godaddy ${chalk.yellow("--gd-key")} KEY ${chalk.yellow("--gd-secret")} SECRET
+  ${chalk.green("bun domainator.js")} example ${chalk.yellow("-r")} whoisxml,godaddy ${chalk.yellow("-v")}
   ${chalk.dim("pbpaste |")} ${chalk.green("bun domainator.js")}
 `);
 }
@@ -339,6 +348,7 @@ function parseArgs(argv) {
     const flagMap = {
         "-h": "--help",
         "-t": "--tlds",
+        "-g": "--group",
         "-r": "--registrar",
         "-i": "--interactive",
         "-cft": "--cf-token",
@@ -390,6 +400,15 @@ function parseArgs(argv) {
                 if (resolved && !options.registrars.includes(resolved)) {
                     options.registrars.push(resolved);
                 }
+            }
+            i++;
+            continue;
+        }
+
+        if (arg === "--group") {
+            const groupName = String(argv[i + 1] || "").toLowerCase();
+            if (TLD_GROUPS[groupName]) {
+                options.tlds = [...TLD_GROUPS[groupName]];
             }
             i++;
             continue;
