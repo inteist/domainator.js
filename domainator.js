@@ -30,7 +30,8 @@ const MAX_REPORT_ISSUES = 12;
 
 const TLD_GROUPS = {
     minimal: [".com", ".net", ".org"],
-    common: [".com", ".net", ".org", ".io", ".ai", ".co", ".dev", ".me", ".sh"],
+    biz: [".com", ".io", ".ai", ".co", ".app"],
+    common: [".com", ".net", ".org", ".io", ".ai", ".co", ".dev", ".me"],
     dev: [".com", ".dev", ".io", ".ai", ".app", ".sh", ".tech", ".tools", ".software", ".cloud", ".studio", ".systems"],
     general: [".com", ".net", ".org", ".biz", ".info", ".xyz", ".online", ".site", ".world", ".space", ".today", ".live", ".news", ".media", ".digital", ".blog", ".cc", ".tv", ".fm"],
 };
