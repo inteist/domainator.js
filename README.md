@@ -1,3 +1,5 @@
+![Domainator Banner](banner.png)
+
 # Domainator
 
 Domainator is a fast, versatile, and unified Command Line Interface (CLI) Domain Availability Checker. Built to run perfectly under [Bun](https://bun.sh/) (or Node.js), it accepts standard inputs, domain expansion, and piped lists, delivering rich availability checks via RDAP, DNS DoH, WHOIS fallbacks, and multi-registrar API checks.
@@ -54,29 +56,29 @@ pbpaste | bun domainator.js
 
 ### Flags & Options
 
-| Flag                | Name             | Description                          | Default                      |
-| :------------------ | :--------------- | :----------------------------------- | :--------------------------- |
-| `-i, --interactive` |                  | Run in interactive mode directly     |                              |
-| `-t, --tlds`        | `<.tld ...>`     | Custom TLD list                      | `.com, .ai, .io`             |
-| `-g, --group`       | `<name>`         | Use a thematic TLD group             |                              |
-| `-r, --registrar`   | `<provider,...>` | Registrar providers, comma-separated | `none`                       |
-| `-v, --verbose`     |                  | Verbose diagnostics per lookup       |                              |
-| `-d, --delay`       | `<seconds>`      | Delay between checks                 | `0.5`                        |
-| `--no-whois`        |                  | Disable whois fallback               |                              |
-| `-h, --help`        |                  | Show CLI help                        |                              |
+| Flag                | Name             | Description                          | Default          |
+| :------------------ | :--------------- | :----------------------------------- | :--------------- |
+| `-i, --interactive` |                  | Run in interactive mode directly     |                  |
+| `-t, --tlds`        | `<.tld ...>`     | Custom TLD list                      | `.com, .ai, .io` |
+| `-g, --group`       | `<name>`         | Use a thematic TLD group             |                  |
+| `-r, --registrar`   | `<provider,...>` | Registrar providers, comma-separated | `none`           |
+| `-v, --verbose`     |                  | Verbose diagnostics per lookup       |                  |
+| `-d, --delay`       | `<seconds>`      | Delay between checks                 | `0.5`            |
+| `--no-whois`        |                  | Disable whois fallback               |                  |
+| `-h, --help`        |                  | Show CLI help                        |                  |
 
 ### TLD Groups
 
 Use the `-g, --group <name>` flag to quickly expand base names against curated sets of TLDs:
 
-| Group     | Description                     | TLDs                                                                                           |
-| :-------- | :------------------------------ | :--------------------------------------------------------------------------------------------- |
-| `minimal` | Most common extensions          | `.com, .net, .org`                                                                             |
-| `biz`     | Business and startup focus      | `.com, .io, .ai, .co, .app`                                                                    |
-| `common`  | Standard tech extensions        | `.com, .net, .org, .io, .ai, .co, .dev, .me, .app`                                             |
-| `rust`    | Rust ecosystem favorites        | `.com, .rs, .io, .sh`                                                                          |
-| `dev`     | Comprehensive developer set     | `.com, .dev, .io, .ai, .rs, .app, .sh, .tech, .tools, .cloud, .studio`                         |
-| `general` | Wide range of modern extensions | `.com, .net, .org, .biz, .info, .xyz, .online, .site, .world, .space, .today, .live, ...`      |
+| Group     | Description                     | TLDs                                                                                      |
+| :-------- | :------------------------------ | :---------------------------------------------------------------------------------------- |
+| `minimal` | Most common extensions          | `.com, .net, .org`                                                                        |
+| `biz`     | Business and startup focus      | `.com, .io, .ai, .co, .app`                                                               |
+| `common`  | Standard tech extensions        | `.com, .net, .org, .io, .ai, .co, .dev, .me, .app`                                        |
+| `rust`    | Rust ecosystem favorites        | `.com, .rs, .io, .sh`                                                                     |
+| `dev`     | Comprehensive developer set     | `.com, .dev, .io, .ai, .rs, .app, .sh, .tech, .tools, .cloud, .studio`                    |
+| `general` | Wide range of modern extensions | `.com, .net, .org, .biz, .info, .xyz, .online, .site, .world, .space, .today, .live, ...` |
 
 ### Supported Registrars & API Keys
 
